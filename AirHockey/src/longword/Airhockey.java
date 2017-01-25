@@ -28,14 +28,14 @@ public class Airhockey extends JComponent implements KeyListener {
     long desiredTime = (1000) / desiredFPS;
    
     // making the hockey puck
-    Rectangle hockeyPuck = new Rectangle(WIDTH / 2, HEIGHT / 2, 30, 30);
+    Rectangle hockeyPuck = new Rectangle(770 / 2, 570 / 2, 30, 30);
     int moveX = 10;
     int moveY = 10;
     int speed = 30;
     
     // making the players "paddle"
-    Rectangle redPaddle = new Rectangle(300, HEIGHT / 2 - 25, 25, 25);
-    Rectangle bluePaddle = new Rectangle(500, HEIGHT / 2 - 25, 25, 25);
+    Rectangle redPaddle = new Rectangle(320, HEIGHT / 2 - 40, 25, 25);
+    Rectangle bluePaddle = new Rectangle(460, HEIGHT / 2 - 40, 25, 25);
     Rectangle blueGoal = new Rectangle(0, 200, 12, 200);
     Rectangle redGoal = new Rectangle(787, 200, 12, 200);
     
@@ -203,13 +203,13 @@ public class Airhockey extends JComponent implements KeyListener {
             if (hockeyPuck.intersects(redGoal)) {
                 hockeyPuck.y = HEIGHT / 2;
                 hockeyPuck.x = WIDTH / 2;
-                score1++; <--
+                score1++; 
             }
 
             if (hockeyPuck.intersects(blueGoal)) {
                 hockeyPuck.y = HEIGHT / 2;
                 hockeyPuck.x = WIDTH / 2;
-                score2++; <--
+                score2++; 
             }
             
             // if red or blue player scores 3 the player wins
