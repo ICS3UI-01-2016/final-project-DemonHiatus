@@ -39,9 +39,11 @@ public class Airhockey extends JComponent implements KeyListener {
     Rectangle blueGoal = new Rectangle(0, 200, 12, 200);
     Rectangle redGoal = new Rectangle(787, 200, 12, 200);
     
+    // int for scores
     int score1 = 0;
     int score2 = 0;
     
+    // creating booleans for paddle movements
     boolean redPaddleUp = false;
     boolean redPaddleDown = false;
     boolean redPaddleLeft = false;
@@ -51,8 +53,8 @@ public class Airhockey extends JComponent implements KeyListener {
     boolean bluePaddleLeft = false;
     boolean bluePaddleRight = false;
     
-    
-      BufferedImage background = loadImage("field.png");
+    // loading the image 
+      BufferedImage background = loadImage("hockeyField.png");
      
       public BufferedImage loadImage(String filename) {
         BufferedImage img = null;
@@ -74,17 +76,21 @@ public class Airhockey extends JComponent implements KeyListener {
 
         // GAME DRAWING GOES HERE 
         g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
-
-        g.setColor(Color.GREEN);
+        
+        // color black for the red goal
+        g.setColor(Color.BLACK);
         g.fillRect(redGoal.x, redGoal.y, redGoal.width, redGoal.height);
         g.fillRect(blueGoal.x, blueGoal.y, blueGoal.width, blueGoal.height);
         
+        // color black for the hockey puck
         g.setColor(Color.BLACK);
         g.fillOval(hockeyPuck.x, hockeyPuck.y, hockeyPuck.width, hockeyPuck.height);
-
+        
+        // color red for redPaddle
         g.setColor(Color.red);
         g.fillOval(redPaddle.x, redPaddle.y, redPaddle.width, redPaddle.height);
-
+        
+        // colopr blue for bluePaddle
         g.setColor(Color.blue);
         g.fillOval(bluePaddle.x, bluePaddle.y, bluePaddle.width, bluePaddle.height);
     }
@@ -274,7 +280,7 @@ public class Airhockey extends JComponent implements KeyListener {
     @Override
     public void keyPressed(KeyEvent ke) {
         int key = ke.getKeyCode();
-
+        // keys being pressed when moving paddle WSAD, ←↑→↓
         if (key == KeyEvent.VK_W) {
             redPaddleUp = true;
         } else if (key == KeyEvent.VK_S) {
@@ -300,7 +306,7 @@ public class Airhockey extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent ke) {
         int key = ke.getKeyCode();
-
+        // keys being released when moving paddle WSAD, ←↑→↓
         if (key == KeyEvent.VK_W) {
             redPaddleUp = false;
         } else if (key == KeyEvent.VK_S) {
