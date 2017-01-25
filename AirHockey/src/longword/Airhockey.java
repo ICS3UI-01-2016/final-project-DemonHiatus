@@ -108,6 +108,49 @@ public class Airhockey extends JComponent implements KeyListener {
             // all your game rules and move is done in here
             // GAME LOGIC STARTS HERE 
             
+            // returns the ball if it goes out of bounds
+            if (redPaddle.y < 32) {
+                redPaddle.y = 32;
+            }
+            if (bluePaddle.y < 32) {
+                bluePaddle.y = 32;
+            }
+            if (hockeyPuck.y < 32) {
+                hockeyPuck.y = hockeyPuck.y + moveY * speed;
+            }
+            if (redPaddle.y > 545) {
+                redPaddle.y = 545;
+            }
+            if (bluePaddle.y > 545) {
+                bluePaddle.y = 545;
+            }
+            if (hockeyPuck.y > 545) {
+                hockeyPuck.y = hockeyPuck.y - moveY * speed * speed;
+            }
+            if (redPaddle.x < 35) {
+                redPaddle.x = 35;
+            }
+            if (bluePaddle.x < 35) {
+                bluePaddle.x = 35;
+            }
+            if (hockeyPuck.x < 35) {
+                hockeyPuck.x = hockeyPuck.x + moveX * speed;
+            }
+            if (redPaddle.x > 745) {
+                redPaddle.x = 745;
+            }
+            if (bluePaddle.x > 745) {
+                bluePaddle.x = 745;
+            }
+            if (hockeyPuck.x > 745) {
+                hockeyPuck.x = hockeyPuck.x - moveX * speed;
+            }
+            
+            
+            
+           
+
+            
 
             // GAME LOGIC ENDS HERE 
 
@@ -152,7 +195,7 @@ public class Airhockey extends JComponent implements KeyListener {
         frame.setVisible(true);
 
         // make the game listen for keys
-
+        frame.addKeyListener((KeyListener) game);
         // starts my game loop
         game.run();
     }
