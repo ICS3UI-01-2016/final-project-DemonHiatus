@@ -147,8 +147,75 @@ public class Airhockey extends JComponent implements KeyListener {
             }
             
             
+            // red and blue paddles movement with a speed of 7
+            if (redPaddleUp) {
+                redPaddle.y = redPaddle.y -  7;
+            } else if (redPaddleDown) {
+                redPaddle.y = redPaddle.y + 7;
+            }
+            if (redPaddleLeft) {
+                redPaddle.x = redPaddle.x - 7;
+            } else if (redPaddleRight) { 
+                redPaddle.x = redPaddle.x + 7;
+            }
+            if (bluePaddleUp) {
+                bluePaddle.y = bluePaddle.y - 7;
+            } else if (bluePaddleDown) {
+                bluePaddle.y = bluePaddle.y + 7;
+            }
+            if (bluePaddleLeft) {
+                bluePaddle.x = bluePaddle.x - 7;
+            } else if (bluePaddleRight) {
+                bluePaddle.x = bluePaddle.x + 7;
+            }
             
-           
+            // hockeyPucks movement when it hits the redPaddle
+            if (hockeyPuck.intersects(redPaddle)) {
+
+                if (hockeyPuck.y <= redPaddle.y - (redPaddle.height / 2)) {
+                    hockeyPuck.y = hockeyPuck.y - moveY * moveY;
+                } else if (hockeyPuck.y >= redPaddle.y + (redPaddle.height / 2)) {
+                    hockeyPuck.y = hockeyPuck.y + moveY * moveY;
+                }
+                if (hockeyPuck.x < redPaddle.x) {
+                    hockeyPuck.x = hockeyPuck.x - moveX * moveX;
+                } else if (hockeyPuck.x > redPaddle.x) {
+                    hockeyPuck.x = hockeyPuck.x + moveX * moveX;
+                }
+            }
+
+            // hockeyPucks movement when it hits the bluePaddle
+            if (hockeyPuck.intersects(bluePaddle)) {
+
+                if (hockeyPuck.y <= bluePaddle.y - (bluePaddle.height / 2)) {
+                    hockeyPuck.y = hockeyPuck.y - moveY * moveY;
+                } else if (hockeyPuck.y >= bluePaddle.y + (bluePaddle.height / 2)) {
+                    hockeyPuck.y = hockeyPuck.y + moveY * moveY;
+                }
+                if (hockeyPuck.x < bluePaddle.x) {
+                    hockeyPuck.x = hockeyPuck.x - moveX * moveX;
+                } else if (hockeyPuck.x > bluePaddle.x) {
+                    hockeyPuck.x = hockeyPuck.x + moveX * moveX;
+                }
+            }
+
+            // goal "rules" when hockey puck hits or goes insde the goal 
+            if (hockeyPuck.intersects(redGoal)) {
+                hockeyPuck.y = HEIGHT / 2;
+                hockeyPuck.x = WIDTH / 2;
+                score1++;
+            }
+
+            if (hockeyPuck.intersects(blueGoal)) {
+                hockeyPuck.y = HEIGHT / 2;
+                hockeyPuck.x = WIDTH / 2;
+                score2++;
+            }
+            
+            // if red or blue player scores 3 the player wins
+            if (score1 == 3 || score2 == 3) {
+                done = true;
+            }
 
             
 
