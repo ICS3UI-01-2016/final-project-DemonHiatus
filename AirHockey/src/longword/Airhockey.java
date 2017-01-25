@@ -203,13 +203,13 @@ public class Airhockey extends JComponent implements KeyListener {
             if (hockeyPuck.intersects(redGoal)) {
                 hockeyPuck.y = HEIGHT / 2;
                 hockeyPuck.x = WIDTH / 2;
-                score1++;
+                score1++; <--
             }
 
             if (hockeyPuck.intersects(blueGoal)) {
                 hockeyPuck.y = HEIGHT / 2;
                 hockeyPuck.x = WIDTH / 2;
-                score2++;
+                score2++; <--
             }
             
             // if red or blue player scores 3 the player wins
