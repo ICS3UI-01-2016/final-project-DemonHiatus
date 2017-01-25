@@ -78,7 +78,7 @@ public class AirHockeyv2 extends JComponent implements KeyListener {
         g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
         
         // color black for the red goal
-        g.setColor(Color.BLACK);
+        g.setColor(Color.GREEN);
         g.fillRect(redGoal.x, redGoal.y, redGoal.width, redGoal.height);
         g.fillRect(blueGoal.x, blueGoal.y, blueGoal.width, blueGoal.height);
         
